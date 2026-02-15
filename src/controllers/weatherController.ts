@@ -2,8 +2,12 @@ import { Request, Response } from "express";
 import {
   generateDublinWeatherData,
   generateLondonWeatherData,
+  generateNepalWeatherData,
+  generateSarlahiWeatherData,
+
 } from "../services/weatherService.js";
 import { validationResult } from "express-validator";
+
 
 /**
  * Gets the weather data for a city
@@ -35,9 +39,15 @@ export const getWeatherData = async (req: Request, res: Response) => {
       finalWeatherData = generateLondonWeatherData();
     } else if (city === "dublin") {
       finalWeatherData = generateDublinWeatherData();
-    } else {
-      // If the city is not london or dublin, we will throw an error
-      res.status(404).send("City not found");
+    } else if (city=="nepal") {
+      finalWeatherData=generateNepalWeatherData();
+    }else if(city=="sarlahi"){
+      finalWeatherData=generateSarlahiWeatherData();
+       // If the city is not london, nepal, sarlahi or dublin, we will throw an error
+    }else{
+         res.status(404).send("City not found");
+      
+      
     }
 
     // We will return the weather data as JSON
@@ -46,4 +56,5 @@ export const getWeatherData = async (req: Request, res: Response) => {
     // If there is an error, we will log it and send a 500 status code
     res.status(500).send("Error in fetching weather data");
   }
+  
 };

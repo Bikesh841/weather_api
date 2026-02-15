@@ -24,4 +24,30 @@ export const generateDublinWeatherData = (): WeatherData => {
 
   // Return weather data
   return generatedWeatherData;
+
 };
+
+export const generateNepalWeatherData = (): WeatherData => {
+  // Generate random weather data
+  const generatedWeatherData: WeatherData = {
+    temperature: faker.number.int({ min: -30, max: 30 }),
+    humidity: faker.number.int({ min: 80, max: 86 }),
+    wind: faker.number.int({ min: 1, max: 78 }),
+    rain: faker.number.int({ min: 30, max: 75 }),
+  };
+
+  // Return weather data
+  return generatedWeatherData;
+
+}
+
+export const generateSarlahiWeatherData = (): WeatherData => {
+  // Generate random weather data
+  const generateSarlahiWeatherData: WeatherData = {
+    temperature: faker.number.int({ min: -30, max: 30 }),
+    humidity: faker.number.int({ min: 80, max: 86 }),
+    wind: faker.number.int({ min: 1, max: 78 }),
+    rain: faker.number.int({ min: 30, max: 75 }),
+  };
+  return generateSarlahiWeatherData;
+}
